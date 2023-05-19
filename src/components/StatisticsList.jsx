@@ -1,22 +1,28 @@
-import * as Styled from './styled';
+import { StatisticItem, StatisticTotal, StatisticPercentage } from './styled';
 import PropTypes from 'prop-types';
 
-export const StatisticsList = ({ options, total, positivePercentage }) => (
+export const StatisticsList = ({
+  good,
+  neutral,
+  bad,
+  countTotalFeedback,
+  countPositiveFeedbackPercentage,
+}) => (
   <>
-    {Object.entries(options).map(el => (
-      <Styled.StatisticItem key={el[0]}>
-        {el[0]}: {el[1]}
-      </Styled.StatisticItem>
-    ))}
-    <Styled.StatisticTotal>Total: {total()}</Styled.StatisticTotal>
-    <Styled.StatisticPercentage>
-      Positive feedback: {positivePercentage()}%
-    </Styled.StatisticPercentage>
+    <StatisticItem>good: {good}</StatisticItem>
+    <StatisticItem>neutral: {neutral}</StatisticItem>
+    <StatisticItem>bad: {bad}</StatisticItem>
+    <StatisticTotal>Total: {countTotalFeedback()}</StatisticTotal>
+    <StatisticPercentage>
+      Positive feedback: {countPositiveFeedbackPercentage()}%
+    </StatisticPercentage>
   </>
 );
 
 StatisticsList.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number.isRequired),
-  total: PropTypes.func.isRequired,
-  positivePercentage: PropTypes.func.isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  countTotalFeedback: PropTypes.func.isRequired,
+  countPositiveFeedbackPercentage: PropTypes.func.isRequired,
 };

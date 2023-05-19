@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
+export const SectionWrap = styled.section`
   text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
   color: #000000;
-  margin-top: 30px;
   padding: 30px;
 `;
 
 export const Title = styled.h2`
   font-size: 40px;
-  color: rgb(87, 88, 134);
+  color: rgb(47, 57, 102);
 `;
 
-export const FeedbackOptions = styled.ul`
+export const FeedbackOptionsList = styled.ul`
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -33,25 +34,34 @@ export const Button = styled.button`
 
   &:hover {
     background-color: ${props => {
-      if (props.type === 'good') {
-        return 'lightgreen';
-      } else if (props.type === 'neutral') {
-        return 'rgb(243, 250, 114)';
-      } else if (props.type === 'bad') {
-        return 'salmon';
+      if (props.children === 'good') {
+        return 'rgb(174, 255, 167)';
+      } else if (props.children === 'neutral') {
+        return 'rgb(254, 255, 167)';
+      } else if (props.children === 'bad') {
+        return 'rgb(255, 167, 167)';
       } else {
-        return '#83e8ff';
+        return 'rgb(167, 239, 255)';
       }
     }};
     cursor: pointer;
     transition: all 250ms linear;
     transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 25px -5px,
+      rgba(0, 0, 0, 0.1) 0px 10px 10px -5px;
   }
 `;
 
+export const NotificationText = styled.p`
+  font-size: 20px;
+  margin-top: 10px;
+  color: #000000;
+`;
+
 export const StatisticTitle = styled.h3`
+  margin-bottom: 10px;
   font-size: 30px;
-  color: rgb(90, 134, 87);
+  color: rgb(47, 57, 102);
 `;
 
 export const StatisticItem = styled.p`
@@ -70,12 +80,5 @@ export const StatisticPercentage = styled.p`
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: rgb(90, 134, 87);
-`;
-
-export const ExtentionText = styled.p`
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 200px;
-  color: #ebc444;
+  color: rgb(55, 212, 112);
 `;
